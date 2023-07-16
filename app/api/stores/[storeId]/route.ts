@@ -60,8 +60,8 @@ export async function DELETE(
         const store = await prismadb.store.deleteMany({
             where: {
                 id: params.storeId,
-                userId,
-            },
+                userId
+            }
         });
 
         return NextResponse.json(store);

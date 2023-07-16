@@ -59,7 +59,7 @@ export const BillboardForm: React.FC<BillboardFormProps> = ({
         defaultValues: initialData || {
             label: "",
             imageUrl: "",
-        },
+        }
     });
 
     const onSubmit = async (data: BillboardFormValues) => {
