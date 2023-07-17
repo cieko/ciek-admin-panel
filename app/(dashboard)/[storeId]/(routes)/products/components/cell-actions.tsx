@@ -16,10 +16,10 @@ import {
 import { Button } from "@/components/ui/button";
 import { AlertModal } from "@/components/modals/alert-modal";
 
-import { BillboardColumn } from "./columns";
+import { ProductColumn } from "./columns";
 
 interface CellActionProps {
-    data: BillboardColumn;
+    data: ProductColumn;
 }
 
 export const CellAction: React.FC<CellActionProps> = ({ data }) => {
@@ -37,12 +37,12 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
     const onDelete = async () => {
         try {
             setLoading(true);
-            await axios.delete(`/api/${params.storeId}/billboards/${data.id}`);
+            await axios.delete(`/api/${params.storeId}/products/${data.id}`);
             router.refresh();
-            toast.success("Billboard deleted.");
+            toast.success("Product deleted.");
         } catch (error: any) {
             toast.error(
-                "Make sure you removed all categories using this billboard first."
+                "Something went wrong."
             );
         } finally {
             setLoading(false);
@@ -79,7 +79,7 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
                         className="cursor-pointer"
                         onClick={() =>
                             router.push(
-                                `/${params.storeId}/billboards/${data.id}`
+                                `/${params.storeId}/products/${data.id}`
                             )
                         }
                     >
