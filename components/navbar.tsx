@@ -20,18 +20,22 @@ const Navbar = async () => {
     });
 
     return (
-        <div className="border-b">
-            <div className="flex h-16 items-center px-4">
-                <div>
-                    <StoreSwitcher items={stores} />
-                </div>
-                <MainNav className="mx-6" />
-                <div className="ml-auto flex items-center space-x-4">
-                    <ThemeToggle />
-                    <UserButton afterSignOutUrl="/" />
+        <>
+            <div className="border-b">
+                <div className="flex h-16 items-center px-4">
+                    <div>
+                        <StoreSwitcher items={stores} />
+                    </div>
+                    <div className="ml-auto flex items-center space-x-4">
+                        <ThemeToggle />
+                        <UserButton afterSignOutUrl="/" />
+                    </div>
                 </div>
             </div>
-        </div>
+            <div className="overflow-x-auto mx-4">
+                <MainNav className="mx-4 my-2 mb-4 items-center " />
+            </div>
+        </>
     );
 };
 
